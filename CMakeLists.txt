@@ -56,6 +56,7 @@ set(library_SOURCES
         src/innerprod/fullysec/damgard_dec_multi.c
         src/innerprod/fullysec/fhipe.c
         src/innerprod/fullysec/fh_multi_ipe.c
+        src/innerprod/fullysec/uzpipfe.c
         src/sample/normal.c
         src/sample/normal_cumulative.c
         src/sample/normal_double.c

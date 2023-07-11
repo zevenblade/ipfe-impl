@@ -8,6 +8,7 @@ cmake*
 # IDE
 .idea
 .vscode
+*.out
 
 # Generated documentation
 docs
