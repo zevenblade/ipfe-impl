@@ -133,7 +133,7 @@ void cfe_uzpipfe_fe_key_init(cfe_uzpipfe_fe_key *fe_key, cfe_uzpipfe *c)
     fe_key->k2 = malloc(c->m2 * sizeof(cfe_vec_G2));
     for (size_t i = 0; i < c->m2; i++)
     {
-        cfe_vec_G2_init(&fe_key->k2[i], 4);
+        cfe_vec_G2_init(&fe_key->k2[i], 3);
     }
 }
 
@@ -156,16 +156,24 @@ cfe_error cfe_uzpipfe_derive_fe_key(cfe_uzpipfe_fe_key *fe_key, cfe_vec *y, cfe_
     cfe_error err = CFE_ERR_NONE;
 
     mpz_t zero, omega, gamma, gamma_tilde, det, el, sum, bound, bound_neg;
-    cfe_vec gamma_v, gamma_tilde_v, k_tmp, B_y;
-    cfe_mat B, B_t, B_inv, B_star, B_t_star;
-    
+    cfe_vec gamma_v, gamma_tilde_v, k_tmp, B_y, k_t_tmp, B_t_y;
+    cfe_mat B, B_inv, B_star, B_t, B_t_inv, B_t_star;
+    cfe_vec_G2 vec_g2, vec_g2_t;
+
     unsigned char key[32], key_tilde[32];
 
     mpz_inits(zero, omega, gamma, gamma_tilde, det, el, sum, bound, bound_neg, NULL);
+    
     cfe_vec_inits(4, &k_tmp, &B_y, NULL);
+    cfe_vec_inits(3, &k_t_tmp, &B_t_y, NULL);
     cfe_vec_init(&gamma_v, c->m1);
     cfe_vec_init(&gamma_tilde_v, c->m2);
-    cfe_mat_inits(4, 4, &B, &B_inv, &B_star, &B_t, &B_t_star, NULL);
+    
+    cfe_vec_G2_init(&vec_g2, 4);
+    cfe_vec_G2_init(&vec_g2_t, 3);
+
+    cfe_mat_inits(4, 4, &B, &B_inv, &B_star, NULL);
+    cfe_mat_inits(3, 3, &B_t, &B_t_inv, &B_t, &B_t_star, NULL);
 
     strncpy((char *) key, (char *) sec_key->key, 32);
     strncpy((char *) key_tilde, (char *) sec_key->key_tilde, 32);
@@ -193,11 +201,14 @@ cfe_error cfe_uzpipfe_derive_fe_key(cfe_uzpipfe_fe_key *fe_key, cfe_vec *y, cfe_
     mpz_neg(el, sum);
     cfe_vec_set(&gamma_tilde_v, el, ((c->m2)-1));
 
-    cfe_vec_G2 vec_g2;
-    cfe_vec_G2_init(&vec_g2, 4);
     for (size_t i = 0; i < 4; i++)
     {
         ECP2_BN254_copy(&vec_g2.vec[i], &pub_key->g2);
+    }
+
+    for (size_t i = 0; i < 3; i++)
+    {
+        ECP2_BN254_copy(&vec_g2_t.vec[i], &pub_key->g2);
     }
 
     for (size_t i = 0; i < c->m1; i++)
@@ -238,12 +249,12 @@ cfe_error cfe_uzpipfe_derive_fe_key(cfe_uzpipfe_fe_key *fe_key, cfe_vec *y, cfe_
     {
         int first_it = 1;
 
-        cfe_vec_set_const(&k_tmp, zero);
+        cfe_vec_set_const(&k_t_tmp, zero);
         cfe_vec_get(el, v, i);
         mpz_mul(el, el, omega);
-        cfe_vec_set(&k_tmp, el, 0);
+        cfe_vec_set(&k_t_tmp, el, 0);
         cfe_vec_get(el, &gamma_tilde_v, i);
-        cfe_vec_set(&k_tmp, el, 2);
+        cfe_vec_set(&k_t_tmp, el, 1);
 
         do
         {
@@ -259,20 +270,21 @@ cfe_error cfe_uzpipfe_derive_fe_key(cfe_uzpipfe_fe_key *fe_key, cfe_vec *y, cfe_
             }
 
             cfe_uniform_sample_mat_det(&B_t, c->order, key_tilde);
-            err = cfe_mat_inverse_mod_gauss(&B_inv, det, &B_t, c->order);
+            err = cfe_mat_inverse_mod_gauss(&B_t_inv, det, &B_t, c->order);
         } while (err != CFE_ERR_NONE);
-        cfe_mat_transpose(&B_t_star, &B_inv);
+        cfe_mat_transpose(&B_t_star, &B_t_inv);
 
-        cfe_mat_mul_vec(&B_y, &B_t_star, &k_tmp);
-        cfe_vec_mod(&B_y, &B_y, c->order);
+        cfe_mat_mul_vec(&B_t_y, &B_t_star, &k_t_tmp);
+        cfe_vec_mod(&B_t_y, &B_t_y, c->order);
 
-        cfe_vec_mul_vec_G2(&fe_key->k2[i], &B_y, &vec_g2);
+        cfe_vec_mul_vec_G2(&fe_key->k2[i], &B_t_y, &vec_g2_t);
     }
 
     mpz_clears(zero, omega, gamma, gamma_tilde, el, NULL);
-    cfe_vec_frees(&k_tmp, &B_y, NULL);
+    cfe_vec_frees(&k_tmp, &B_y, &k_t_tmp, &B_t_y, NULL);
     cfe_vec_G2_free(&vec_g2);
-    cfe_mat_frees(&B, &B_inv, &B_star, &B_t, &B_t_star, NULL);
+    cfe_vec_G2_free(&vec_g2_t);
+    cfe_mat_frees(&B, &B_inv, &B_star, &B_t, &B_t_inv, &B_t_star, NULL);
 
     return CFE_ERR_NONE;
 }
@@ -288,7 +300,7 @@ void cfe_uzpipfe_ciphertext_init(cfe_uzpipfe_ciphertext *cipher, cfe_uzpipfe *c)
     cipher->c2 = malloc(c->m2 * sizeof(cfe_vec_G1));
     for (size_t i = 0; i < c->m2; i++)
     {
-        cfe_vec_G1_init(&cipher->c2[i], 4);
+        cfe_vec_G1_init(&cipher->c2[i], 3);
     }
 }
 
@@ -311,14 +323,22 @@ cfe_error cfe_uzpipfe_encrypt(cfe_uzpipfe_ciphertext *cipher, cfe_vec *x, cfe_ve
     cfe_error err = CFE_ERR_NONE;
 
     mpz_t zero, alpha, delta, det, el;
-    cfe_vec c_tmp, B_x;
-    cfe_mat B, B_t, B_inv;
-    
+    cfe_vec c_tmp, B_x, c_t_tmp, B_t_x;
+    cfe_mat B, B_inv, B_t, B_t_inv;
+    cfe_vec_G1 vec_g1, vec_g1_t;
+
     unsigned char key[32], key_tilde[32];
 
     mpz_inits(zero, alpha, delta, el, det, NULL);
+    
     cfe_vec_inits(4, &c_tmp, &B_x, NULL);
-    cfe_mat_inits(4, 4, &B, &B_inv, &B_t, NULL);
+    cfe_vec_inits(3, &c_t_tmp, &B_t_x, NULL);
+    
+    cfe_vec_G1_init(&vec_g1, 4);
+    cfe_vec_G1_init(&vec_g1_t, 3);
+
+    cfe_mat_inits(4, 4, &B, &B_inv, NULL);
+    cfe_mat_inits(3, 3, &B_t, &B_t_inv, NULL);
 
     strncpy((char *) key, (char *) sec_key->key, 32);
     strncpy((char *) key_tilde, (char *) sec_key->key_tilde, 32);
@@ -327,11 +347,13 @@ cfe_error cfe_uzpipfe_encrypt(cfe_uzpipfe_ciphertext *cipher, cfe_vec *x, cfe_ve
     cfe_uniform_sample(alpha, c->order);
     cfe_uniform_sample(delta, c->order);
 
-    cfe_vec_G1 vec_g1;
-    cfe_vec_G1_init(&vec_g1, 4);
     for (size_t i = 0; i < 4; i++)
     {
         ECP_BN254_copy(&vec_g1.vec[i], &pub_key->g1);
+    }
+    for (size_t i = 0; i < 3; i++)
+    {
+        ECP_BN254_copy(&vec_g1_t.vec[i], &pub_key->g1);
     }
 
     for (size_t i = 0; i < c->m1; i++)
@@ -370,11 +392,11 @@ cfe_error cfe_uzpipfe_encrypt(cfe_uzpipfe_ciphertext *cipher, cfe_vec *x, cfe_ve
     {
         int first_it = 1;
 
-        cfe_vec_set_const(&c_tmp, zero);
+        cfe_vec_set_const(&c_t_tmp, zero);
         cfe_vec_get(el, w, i);
         mpz_mul(el, el, delta);
-        cfe_vec_set(&c_tmp, el, 0);
-        cfe_vec_set(&c_tmp, alpha, 2);
+        cfe_vec_set(&c_t_tmp, el, 0);
+        cfe_vec_set(&c_t_tmp, alpha, 1);
 
         do
         {
@@ -390,19 +412,20 @@ cfe_error cfe_uzpipfe_encrypt(cfe_uzpipfe_ciphertext *cipher, cfe_vec *x, cfe_ve
             }
 
             cfe_uniform_sample_mat_det(&B_t, c->order, key_tilde);
-            err = cfe_mat_inverse_mod_gauss(&B_inv, det, &B_t, c->order);
+            err = cfe_mat_inverse_mod_gauss(&B_t_inv, det, &B_t, c->order);
         } while (err != CFE_ERR_NONE);
 
-        cfe_mat_mul_vec(&B_x, &B_t, &c_tmp);
-        cfe_vec_mod(&B_x, &B_x, c->order);
+        cfe_mat_mul_vec(&B_t_x, &B_t, &c_t_tmp);
+        cfe_vec_mod(&B_t_x, &B_t_x, c->order);
 
-        cfe_vec_mul_vec_G1(&cipher->c2[i], &B_x, &vec_g1);
+        cfe_vec_mul_vec_G1(&cipher->c2[i], &B_t_x, &vec_g1_t);
     }
 
     mpz_clears(zero, alpha, delta, el, NULL);
-    cfe_vec_frees(&c_tmp, &B_x, NULL);
+    cfe_vec_frees(&c_tmp, &B_x, &c_t_tmp, &B_t_x, NULL);
     cfe_vec_G1_free(&vec_g1);
-    cfe_mat_frees(&B, &B_inv, &B_t, NULL);
+    cfe_vec_G1_free(&vec_g1_t); 
+    cfe_mat_frees(&B, &B_inv, &B_t, &B_t_inv, NULL);
 
     return CFE_ERR_NONE;
 }
@@ -429,7 +452,7 @@ cfe_error cfe_uzpipfe_decrypt(mpz_t res, cfe_uzpipfe_ciphertext *cipher,
 
     for (size_t i = 0; i < c->m2; i++)
     {
-        for (size_t j = 0; j < 4; j++)
+        for (size_t j = 0; j < 3; j++)
         {
             PAIR_BN254_ate(&paired, &fe_key->k2[i].vec[j], &cipher->c2[i].vec[j]);
             PAIR_BN254_fexp(&paired);
