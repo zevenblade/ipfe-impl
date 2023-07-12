@@ -240,6 +240,7 @@ cfe_error cfe_uzpipfe_derive_fe_key(cfe_uzpipfe_fe_key *fe_key, cfe_vec *y, cfe_
 
         cfe_vec_set_const(&k_tmp, zero);
         cfe_vec_get(el, v, i);
+        mpz_mul(el, el, omega);
         cfe_vec_set(&k_tmp, el, 0);
         cfe_vec_get(el, &gamma_tilde_v, i);
         cfe_vec_set(&k_tmp, el, 2);
