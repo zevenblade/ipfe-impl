@@ -122,13 +122,13 @@ cfe_error cfe_uabipfe_generate_keys(cfe_uabipfe_master_pub_key *master_pub_key, 
     mpz_div_ui(order, order, 100000000000000);
     mpz_div_ui(order, order, 100000000000000);
     mpz_div_ui(order, order, 1000000000000);
-    //cfe_uniform_sample(mu, order);
-    mpz_set_ui(mu, 1);
+    cfe_uniform_sample(mu, c->order);
+    //mpz_set_ui(mu, 1);
     gmp_printf("mu: %Zd\n", mu);
     BIG_256_56_from_mpz(mu_big, mu);
     
-    mpz_set_ui(master_sec_key->z, 1);
-    //cfe_uniform_sample(master_sec_key->z, c->order);
+    //mpz_set_ui(master_sec_key->z, 1);
+    cfe_uniform_sample(master_sec_key->z, c->order);
 
     ECP_BN254_generator(&master_pub_key->g1);
     ECP2_BN254_generator(&master_pub_key->g2);
@@ -170,6 +170,7 @@ cfe_error cfe_uabipfe_generate_keys(cfe_uabipfe_master_pub_key *master_pub_key, 
     cfe_mat_get_row(&col_4_1, &H, 0);
     cfe_mat_get_row(&col_4_2, &H, 1);
     cfe_vec_mul_scalar(&col_4_2, &col_4_2, mu);
+    cfe_vec_mod(&col_4_2, &col_4_2, c->order);
     cfe_vec_add(&sum, &col_4_1, &col_4_2);
     cfe_vec_mul_vec_G1(&master_pub_key->h12, &sum, &vec_g1_4);
 
@@ -227,16 +228,16 @@ cfe_error cfe_uabipfe_encrypt(cfe_uabipfe_ciphertext *cipher, cfe_uabipfe_master
     cfe_vec_copy(&x_tmp, x);
     cfe_vec_mod(&x_tmp, &x_tmp, c->order);
 
-    mpz_set_ui(sigma, 1);
-    mpz_set_si(sigma_j, -1);
+    //mpz_set_ui(sigma, 1);
+    cfe_uniform_sample(sigma, c->order);
+    mpz_neg(sigma_j, sigma);
     mpz_mod(sigma_j, sigma_j, c->order);
     BIG_256_56_from_mpz(sigma_big, sigma);
     BIG_256_56_from_mpz(sigma_j_big, sigma_j);
 
     cfe_uniform_sample(omega, c->order);
     BIG_256_56_from_mpz(omega_big, omega);
-    mpz_set_ui(psi, 1);
-    //cfe_uniform_sample(psi, c->order);
+    cfe_uniform_sample(psi, c->order);
     BIG_256_56_from_mpz(psi_big, psi);
 
     for(size_t i = 0; i < 8; i++){
@@ -264,7 +265,6 @@ cfe_error cfe_uabipfe_encrypt(cfe_uabipfe_ciphertext *cipher, cfe_uabipfe_master
         ECP_BN254_copy(&cipher->c_ipfe.vec[i], &h_t_1);
         ECP_BN254_add(&cipher->c_ipfe.vec[i], &h_t_2);
     }
-    
 
     for(size_t i = 0; i < c->m1; i++){
         ECP_BN254_copy(&el_g1, &master_pub_key->g1);
@@ -332,13 +332,11 @@ cfe_error cfe_uabipfe_derive_fe_key(cfe_uabipfe_fe_key *fe_key, cfe_vec *y,
         ECP2_BN254_copy(&vec_g2.vec[i], &sec_key->g2);
     }
 
-    mpz_set_si(pi, 1);
-    //cfe_uniform_sample(pi, c->order);
-    mpz_set_ui(a_j_z, 1);
+    cfe_uniform_sample(pi, c->order);
+    
+    cfe_uniform_sample(a_j_z, c->order);
     mpz_mul(a_j_z, a_j_z, sec_key->z);
-    mpz_set_si(a_0_z, -1);
-    mpz_mod(a_0_z, a_0_z, c->order);
-    mpz_mul(a_0_z, a_0_z, sec_key->z);
+    mpz_neg(a_0_z, a_j_z);
     mpz_mod(a_0_z, a_0_z, c->order);
     BIG_256_56_from_mpz(a_0_z_big, a_0_z);;
     ECP2_BN254_copy(&g_a_z, &sec_key->g2);
@@ -348,14 +346,17 @@ cfe_error cfe_uabipfe_derive_fe_key(cfe_uabipfe_fe_key *fe_key, cfe_vec *y,
     for(size_t i = 0; i < 8; i++){
         mpz_set(el, pi);
         mpz_mul(el, el, sec_key->f_star[0].vec[i]);
+        mpz_mod(el, el, c->order);
         mpz_add(k_tmp.vec[i], k_tmp.vec[i], el);
     
         mpz_set(el, pi);
         mpz_mul(el, el, sec_key->f_star[1].vec[i]);
+        mpz_mod(el, el, c->order);
         mpz_add(k_tmp.vec[i], k_tmp.vec[i], el);
     
         mpz_set(el, a_j_z);
         mpz_mul(el, el, sec_key->f_star[2].vec[i]);
+        mpz_mod(el, el, c->order);
         mpz_add(k_tmp.vec[i], k_tmp.vec[i], el);
     }
     cfe_vec_mul_vec_G2(&fe_key->k_j, &k_tmp, &vec_g2);
