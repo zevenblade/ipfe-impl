@@ -64,7 +64,7 @@ def curveset(tb,tf,tc,nb,base,nbt,m8,mt,ct,pf,stw,sx,ab,cs) :
 
 	replace(fnamec,"XXX",bd)
 	replace(fnameh,"XXX",bd)
-	os.system("gcc -O3 -fPIC -std=c99 -c "+fnamec)
+	#os.system("gcc -O3 -fPIC -std=c99 -c "+fnamec)
 
 	fnamec="fp_"+tf+".c"
 	fnameh="fp_"+tf+".h"
@@ -76,9 +76,9 @@ def curveset(tb,tf,tc,nb,base,nbt,m8,mt,ct,pf,stw,sx,ab,cs) :
 	replace(fnamec,"XXX",bd)
 	replace(fnameh,"YYY",tf)
 	replace(fnameh,"XXX",bd)
-	os.system("gcc -O3 -fPIC -std=c99 -c "+fnamec)
+	#os.system("gcc -O3 -fPIC -std=c99 -c "+fnamec)
 
-	os.system("gcc -O3 -fPIC -std=c99 -c rom_field_"+tf+".c");
+	#os.system("gcc -O3 -fPIC -std=c99 -c rom_field_"+tf+".c");
 
 	fnamec="ecp_"+tc+".c"
 	fnameh="ecp_"+tc+".h"
@@ -92,7 +92,7 @@ def curveset(tb,tf,tc,nb,base,nbt,m8,mt,ct,pf,stw,sx,ab,cs) :
 	replace(fnameh,"ZZZ",tc)
 	replace(fnameh,"YYY",tf)
 	replace(fnameh,"XXX",bd)
-	os.system("gcc -O3 -fPIC -std=c99 -c "+fnamec)
+	#os.system("gcc -O3 -fPIC -std=c99 -c "+fnamec)
 
 	fnamec="ecdh_"+tc+".c"
 	fnameh="ecdh_"+tc+".h"
@@ -106,9 +106,9 @@ def curveset(tb,tf,tc,nb,base,nbt,m8,mt,ct,pf,stw,sx,ab,cs) :
 	replace(fnameh,"ZZZ",tc)
 	replace(fnameh,"YYY",tf)
 	replace(fnameh,"XXX",bd)
-	os.system("gcc -O3 -fPIC -std=c99 -c "+fnamec)
+	#os.system("gcc -O3 -fPIC -std=c99 -c "+fnamec)
 
-	os.system("gcc -O3 -fPIC -std=c99 -c rom_curve_"+tc+".c");
+	#os.system("gcc -O3 -fPIC -std=c99 -c rom_curve_"+tc+".c");
 
 	if pf != "NOT" :
 		fnamec="fp2_"+tf+".c"
@@ -120,7 +120,7 @@ def curveset(tb,tf,tc,nb,base,nbt,m8,mt,ct,pf,stw,sx,ab,cs) :
 		replace(fnamec,"XXX",bd)
 		replace(fnameh,"YYY",tf)
 		replace(fnameh,"XXX",bd)
-		os.system("gcc -O3 -fPIC -std=c99 -c "+fnamec)
+		#os.system("gcc -O3 -fPIC -std=c99 -c "+fnamec)
 
 		fnamec="fp4_"+tf+".c"
 		fnameh="fp4_"+tf+".h"
@@ -133,7 +133,7 @@ def curveset(tb,tf,tc,nb,base,nbt,m8,mt,ct,pf,stw,sx,ab,cs) :
 		replace(fnameh,"YYY",tf)
 		replace(fnameh,"XXX",bd)
 		replace(fnameh,"ZZZ",tc)
-		os.system("gcc -O3 -fPIC -std=c99 -c "+fnamec)
+		#os.system("gcc -O3 -fPIC -std=c99 -c "+fnamec)
 
 		if cs == "128" :
 			fnamec="fp12_"+tf+".c"
@@ -147,7 +147,7 @@ def curveset(tb,tf,tc,nb,base,nbt,m8,mt,ct,pf,stw,sx,ab,cs) :
 			replace(fnameh,"YYY",tf)
 			replace(fnameh,"XXX",bd)
 			replace(fnameh,"ZZZ",tc)
-			os.system("gcc -O3 -fPIC -std=c99 -c "+fnamec)
+			#os.system("gcc -O3 -fPIC -std=c99 -c "+fnamec)
 
 			fnamec="ecp2_"+tc+".c"
 			fnameh="ecp2_"+tc+".h"
@@ -160,7 +160,7 @@ def curveset(tb,tf,tc,nb,base,nbt,m8,mt,ct,pf,stw,sx,ab,cs) :
 			replace(fnameh,"ZZZ",tc)
 			replace(fnameh,"YYY",tf)
 			replace(fnameh,"XXX",bd)
-			os.system("gcc -O3 -fPIC -std=c99 -c "+fnamec)
+			#os.system("gcc -O3 -fPIC -std=c99 -c "+fnamec)
 
 			fnamec="pair_"+tc+".c"
 			fnameh="pair_"+tc+".h"
@@ -173,7 +173,7 @@ def curveset(tb,tf,tc,nb,base,nbt,m8,mt,ct,pf,stw,sx,ab,cs) :
 			replace(fnameh,"ZZZ",tc)
 			replace(fnameh,"YYY",tf)
 			replace(fnameh,"XXX",bd)
-			os.system("gcc -O3 -fPIC -std=c99 -c "+fnamec)
+			#os.system("gcc -O3 -fPIC -std=c99 -c "+fnamec)
 
 			fnamec="mpin_"+tc+".c"
 			fnameh="mpin_"+tc+".h"
@@ -186,7 +186,7 @@ def curveset(tb,tf,tc,nb,base,nbt,m8,mt,ct,pf,stw,sx,ab,cs) :
 			replace(fnameh,"ZZZ",tc)
 			replace(fnameh,"YYY",tf)
 			replace(fnameh,"XXX",bd)
-			os.system("gcc -O3 -fPIC -std=c99 -c "+fnamec)
+			#os.system("gcc -O3 -fPIC -std=c99 -c "+fnamec)
 
 			fnamec="bls_"+tc+".c"
 			fnameh="bls_"+tc+".h"
@@ -199,7 +199,7 @@ def curveset(tb,tf,tc,nb,base,nbt,m8,mt,ct,pf,stw,sx,ab,cs) :
 			replace(fnameh,"ZZZ",tc)
 			replace(fnameh,"YYY",tf)
 			replace(fnameh,"XXX",bd)
-			os.system("gcc -O3 -fPIC -std=c99 -c "+fnamec)
+			#os.system("gcc -O3 -fPIC -std=c99 -c "+fnamec)
 
 replace("arch.h","@WL@","64")
 
@@ -243,15 +243,15 @@ os.system(deltext+" mpin256.*")
 os.system(deltext+" bls256.*")
 
 # create library
-os.system("gcc -O3 -fPIC -std=c99 -c pbc_support.c")
+#os.system("gcc -O3 -fPIC -std=c99 -c pbc_support.c")
 
-os.system("gcc -O3 -fPIC -std=c99 -c hash.c")
-os.system("gcc -O3 -fPIC -std=c99 -c rand.c")
-os.system("gcc -O3 -fPIC -std=c99 -c oct.c")
-os.system("gcc -O3 -fPIC -std=c99 -c aes.c")
-os.system("gcc -O3 -fPIC -std=c99 -c gcm.c")
-os.system("gcc -O3 -fPIC -std=c99 -c newhope.c")
+#os.system("gcc -O3 -fPIC -std=c99 -c hash.c")
+#os.system("gcc -O3 -fPIC -std=c99 -c rand.c")
+#os.system("gcc -O3 -fPIC -std=c99 -c oct.c")
+#os.system("gcc -O3 -fPIC -std=c99 -c aes.c")
+#os.system("gcc -O3 -fPIC -std=c99 -c gcm.c")
+#os.system("gcc -O3 -fPIC -std=c99 -c newhope.c")
 
-os.system("ar rc amcl.a *.o")
+#os.system("ar rc amcl.a *.o")
 
-os.system(deltext+" *.o")
+#os.system(deltext+" *.o")

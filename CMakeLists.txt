@@ -68,6 +68,7 @@ set(library_SOURCES
         src/abe/gpsw.c
         src/abe/fame.c
         src/abe/dippe.c
+        src/abe/uabipfe.c
         src/quadratic/sgp.c
         src/serialization/fame_ser.c
         src/serialization/data_ser.c

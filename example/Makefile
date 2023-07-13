@@ -1,3 +1,9 @@
+uabipfe:
+	gcc	-L/usr/local/lib/libcifer.so \
+		-g uabipfe.c \
+		-o uabipfe.out \
+		-lgmp -lcifer 
+
 uzpipfe:
 	gcc	-L/usr/local/lib/libcifer.so \
 		-g uzpipfe.c \
