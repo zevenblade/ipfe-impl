@@ -135,7 +135,7 @@ cfe_error cfe_uabipfe_generate_keys(cfe_uabipfe_master_pub_key *master_pub_key, 
 
 typedef struct cfe_uabipfe_ciphertext
 {
-    cfe_vec_G1 c_j;
+    cfe_vec_G1 *c_j;
     cfe_vec_G1 c_ipfe;
     FP12_BN254 *t;
 } cfe_uabipfe_ciphertext;
@@ -148,7 +148,7 @@ typedef struct cfe_uabipfe_ciphertext
  * @param c A pointer to an instance of the scheme (*initialized* cfe_uabipfe
  * struct)
  */
-void cfe_uabipfe_ciphertext_init(cfe_uabipfe_ciphertext *cipher, cfe_uabipfe *c);
+void cfe_uabipfe_ciphertext_init(cfe_uabipfe_ciphertext *cipher, cfe_msp *msp, cfe_uabipfe *c);
 
 /**
  * Frees the memory occupied by the struct members. It does
@@ -158,7 +158,7 @@ void cfe_uabipfe_ciphertext_init(cfe_uabipfe_ciphertext *cipher, cfe_uabipfe *c)
  * @param c A pointer to an instance of the scheme (*initialized* cfe_uabipfe
  * struct)
  */
-void cfe_uabipfe_ciphertext_free(cfe_uabipfe_ciphertext *cipher, cfe_uabipfe *c);
+void cfe_uabipfe_ciphertext_free(cfe_uabipfe_ciphertext *cipher, cfe_msp *msp, cfe_uabipfe *c);
 
 /**
  * Encrypts input vector x with the provided master secret key. It returns a
@@ -173,11 +173,11 @@ void cfe_uabipfe_ciphertext_free(cfe_uabipfe_ciphertext *cipher, cfe_uabipfe *c)
  * @return Error code
  */
 cfe_error cfe_uabipfe_encrypt(cfe_uabipfe_ciphertext *cipher, cfe_uabipfe_master_pub_key *master_pub_key, 
-                                cfe_vec *x, cfe_uabipfe *c);
+                                cfe_vec *x, cfe_msp *msp, cfe_uabipfe *c);
 
 typedef struct cfe_uabipfe_fe_key
 {
-    cfe_vec_G2 k_j;
+    cfe_vec_G2 *k_j;
     cfe_vec_G2 k_ipfe;
 } cfe_uabipfe_fe_key;
 
@@ -189,7 +189,7 @@ typedef struct cfe_uabipfe_fe_key
  * @param c A pointer to an instance of the scheme (*initialized* cfe_uabipfe
  * struct)
  */
-void cfe_uabipfe_fe_key_init(cfe_uabipfe_fe_key *fe_key, cfe_uabipfe *c);
+void cfe_uabipfe_fe_key_init(cfe_uabipfe_fe_key *fe_key, cfe_msp *msp, cfe_uabipfe *c);
 
 /**
  * Frees the memory occupied by the struct members. It does
@@ -199,7 +199,7 @@ void cfe_uabipfe_fe_key_init(cfe_uabipfe_fe_key *fe_key, cfe_uabipfe *c);
  * @param c A pointer to an instance of the scheme (*initialized* cfe_uabipfe
  * struct)
  */
-void cfe_uabipfe_fe_key_free(cfe_uabipfe_fe_key *fe_key,  cfe_uabipfe *c);
+void cfe_uabipfe_fe_key_free(cfe_uabipfe_fe_key *fe_key, cfe_msp *msp, cfe_uabipfe *c);
 
 /**
  * Takes a master secret key and input vector y, and derives the functional
@@ -213,7 +213,7 @@ void cfe_uabipfe_fe_key_free(cfe_uabipfe_fe_key *fe_key,  cfe_uabipfe *c);
  * struct)
  * @return Error code
  */
-cfe_error cfe_uabipfe_derive_fe_key(cfe_uabipfe_fe_key *fe_key, cfe_vec *y, 
+cfe_error cfe_uabipfe_derive_fe_key(cfe_uabipfe_fe_key *fe_key, cfe_vec *y, cfe_msp *msp,
                                     cfe_uabipfe_master_sec_key *sec_key, cfe_uabipfe *c);
 
 /**
@@ -231,6 +231,7 @@ cfe_error cfe_uabipfe_derive_fe_key(cfe_uabipfe_fe_key *fe_key, cfe_vec *y,
 cfe_error cfe_uabipfe_decrypt(mpz_t res, cfe_uabipfe_ciphertext *cipher,
                               cfe_uabipfe_master_pub_key *master_pub_key,
                               cfe_uabipfe_fe_key *fe_key, cfe_vec *y,
+                              cfe_msp *msp, int* owned_attrib, size_t num_attrib,
                               cfe_uabipfe *c);
 
 #endif

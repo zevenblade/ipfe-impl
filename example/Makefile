@@ -4,6 +4,12 @@ uabipfe:
 		-o uabipfe.out \
 		-lgmp -lcifer 
 
+msp:
+	gcc	-L/usr/local/lib/libcifer.so \
+		-g msp.c \
+		-o msp.out \
+		-lgmp -lcifer 		
+
 uzpipfe:
 	gcc	-L/usr/local/lib/libcifer.so \
 		-g uzpipfe.c \
