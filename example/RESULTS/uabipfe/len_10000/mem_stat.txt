@@ -1,0 +1,20 @@
+==121742== Memcheck, a memory error detector
+==121742== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==121742== Using Valgrind-3.21.0 and LibVEX; rerun with -h for copyright info
+==121742== Command: ./uabipfe.out
+==121742== 
+==121742== 
+==121742== HEAP SUMMARY:
+==121742==     in use at exit: 646,952 bytes in 20,076 blocks
+==121742==   total heap usage: 81,041 allocs, 60,965 frees, 1,192,183 bytes allocated
+==121742== 
+==121742== LEAK SUMMARY:
+==121742==    definitely lost: 325,432 bytes in 24 blocks
+==121742==    indirectly lost: 321,520 bytes in 20,052 blocks
+==121742==      possibly lost: 0 bytes in 0 blocks
+==121742==    still reachable: 0 bytes in 0 blocks
+==121742==         suppressed: 0 bytes in 0 blocks
+==121742== Rerun with --leak-check=full to see details of leaked memory
+==121742== 
+==121742== For lists of detected and suppressed errors, rerun with: -s
+==121742== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

@@ -32,7 +32,7 @@ void main()
     cfe_uniform_sample_range_vec(&x, bound_neg, bound);
     cfe_uniform_sample_range_vec(&y, bound_neg, bound);
     cfe_vec_dot(xy_check, &x, &y);
-
+    
     printf("x: ");
     cfe_vec_print(&x);
     printf("\ny: ");
@@ -50,21 +50,23 @@ void main()
     cfe_msp msp;
     err = cfe_boolean_to_msp(&msp, bool_exp, bool_exp_len, false);
     // cfe_mat_print(&msp.mat);
-
+    
     cfe_uabipfe_fe_key fe_key;
     cfe_uabipfe_fe_key_init(&fe_key, &msp, &uabipfe);
     err = cfe_uabipfe_derive_fe_key(&fe_key, &y, &msp, &master_sec_key, &uabipfe);
-
+    
     cfe_uabipfe_ciphertext cipher;
     cfe_uabipfe_ciphertext_init(&cipher, &msp, &uabipfe);
     err = cfe_uabipfe_encrypt(&cipher, &master_pub_key, &x, &msp, &uabipfe);
-
+    
+    
     int owned_attrib[] = {3, 1, 6};
 
     cfe_uabipfe decryptor;
     cfe_uabipfe_copy(&decryptor, &uabipfe);
     err = cfe_uabipfe_decrypt(xy, &cipher, &master_pub_key, &fe_key, &y, &msp, owned_attrib, 3, &decryptor);
-
+    
+    
     gmp_printf("FE x * y: %Zd\n", xy);
 
     if (err == CFE_ERR_NONE)
@@ -83,4 +85,5 @@ void main()
     {
         printf("Other error\n");
     }
+    
 }

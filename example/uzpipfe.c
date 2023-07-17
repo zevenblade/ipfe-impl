@@ -7,7 +7,7 @@ void main()
 {
     cfe_error err;
     size_t m1 = 10;
-    size_t m2 = 4;
+    size_t m2 = 2;
     mpz_t zero, one, bound, bound_neg, xy_check, xy, wv_check;
     cfe_vec x, y, w, v;
 
@@ -19,7 +19,7 @@ void main()
     mpz_set_ui(one, 1);
 
     mpz_set_ui(bound, 2);
-    mpz_pow_ui(bound, bound, 8);
+    mpz_pow_ui(bound, bound, 1);
     mpz_neg(bound_neg, bound);
 
     cfe_uzpipfe uzpipfe;
@@ -61,15 +61,17 @@ void main()
     err = cfe_uzpipfe_derive_fe_key(&fe_key, &y, &v, 
                                     &sec_key, &pub_key,
                                     &uzpipfe);
-
+    
     cfe_uzpipfe_ciphertext cipher;
     cfe_uzpipfe_ciphertext_init(&cipher, &uzpipfe);
     err = cfe_uzpipfe_encrypt(&cipher, &x, &w, &sec_key, &pub_key, &uzpipfe);
 
+
     cfe_uzpipfe decryptor;
     cfe_uzpipfe_copy(&decryptor, &uzpipfe);
     err = cfe_uzpipfe_decrypt(xy, &cipher, &fe_key, &pub_key, &decryptor);
-
+    
+    
     gmp_printf("FE x * y: %Zd\n", xy);
 
     if(err == CFE_ERR_NONE){
@@ -79,6 +81,7 @@ void main()
     } else{
         printf("Other error\n");
     }
+    
 
     return ;
 }

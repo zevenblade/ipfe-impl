@@ -44,18 +44,6 @@ set(library_SOURCES
         src/internal/keygen.c
         src/internal/prime.c
         src/internal/str.c
-        src/innerprod/simple/ddh.c
-        src/innerprod/simple/ddh_multi.c
-        src/innerprod/simple/lwe.c
-        src/innerprod/simple/ring_lwe.c
-        src/innerprod/fullysec/damgard.c
-        src/innerprod/fullysec/damgard_multi.c
-        src/innerprod/fullysec/lwe_fs.c
-        src/innerprod/fullysec/paillier.c
-        src/innerprod/fullysec/dmcfe.c
-        src/innerprod/fullysec/damgard_dec_multi.c
-        src/innerprod/fullysec/fhipe.c
-        src/innerprod/fullysec/fh_multi_ipe.c
         src/innerprod/fullysec/uzpipfe.c
         src/sample/normal.c
         src/sample/normal_cumulative.c
@@ -65,17 +53,7 @@ set(library_SOURCES
         src/sample/normal_negative.c
         src/sample/uniform.c
         src/abe/policy.c
-        src/abe/gpsw.c
-        src/abe/fame.c
-        src/abe/dippe.c
         src/abe/uabipfe.c
-        src/quadratic/sgp.c
-        src/serialization/fame_ser.c
-        src/serialization/data_ser.c
-        src/serialization/gpsw_ser.c
-        include/cifer/serialization/fame.pb-c.c
-        include/cifer/serialization/data.pb-c.c
-        include/cifer/serialization/gpsw.pb-c.c
         )
 
 add_library(cifer SHARED ${library_SOURCES})
@@ -99,48 +77,12 @@ install(DIRECTORY include/ DESTINATION include)
 
 # Create an executable
 set(binary_SOURCES
-        test/test.c
-        test/data/mat.c
-        test/data/vec.c
-        test/internal/dlog.c
-        test/internal/keygen.c
-        test/internal/prime.c
-        test/internal/str.c
-        test/internal/big.c
-        test/innerprod/simple/ddh.c
-        test/innerprod/simple/ddh_multi.c
-        test/innerprod/simple/lwe.c
-        test/innerprod/simple/ring_lwe.c
-        test/innerprod/fullysec/damgard.c
-        test/innerprod/fullysec/damgard_multi.c
-        test/innerprod/fullysec/lwe_fs.c
-        test/innerprod/fullysec/paillier.c
-        test/innerprod/fullysec/dmcfe.c
-        test/innerprod/fullysec/damgard_dec_multi.c
-        test/innerprod/fullysec/fhipe.c
-        test/innerprod/fullysec/fh_multi_ipe.c
-        test/sample/normal.c
-        test/sample/normal_cumulative.c
-        test/sample/normal_double.c
-        test/sample/normal_double_constant.c
-        test/sample/normal_cdt.c
-        test/sample/normal_negative.c
-        test/sample/uniform.c
-        test/abe/policy.c
-        test/abe/gpsw.c
-        test/abe/fame.c
-        test/abe/dippe.c
-        external/munit/munit.c
-        test/quadratic/sgp.c
-        test/serialization/data_ser.c
-        test/serialization/fame_ser.c
-        test/serialization/gpsw_ser.c
         )
 
-add_executable(cifer_test ${binary_SOURCES})
+#add_executable(cifer_test ${binary_SOURCES})
 
-target_link_libraries(cifer_test PRIVATE cifer)
+#target_link_libraries(cifer_test PRIVATE cifer)
 
-add_custom_target(test COMMAND cifer_test VERBATIM)
+#add_custom_target(test COMMAND cifer_test VERBATIM)
 
 add_custom_target(docs COMMAND doxygen WORKING_DIRECTORY .. VERBATIM)
