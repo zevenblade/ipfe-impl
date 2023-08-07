@@ -1,0 +1,1174 @@
+desc: (none)
+cmd: ./uabipfe.out
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=625781
+mem_heap_B=11952
+mem_heap_extra_B=608
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=26076571
+mem_heap_B=11984
+mem_heap_extra_B=616
+mem_stacks_B=0
+heap_tree=detailed
+n3: 11984 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n4: 11840 0x49C7F63: cfe_malloc (common.c:29)
+  n5: 6336 0x49C7327: cfe_vec_G1_init (vec_curve.c:28)
+   n1: 3456 0x49D0B6B: cfe_uabipfe_master_pub_key_init (uabipfe.c:68)
+    n0: 3456 0x410363: main (uabipfe.c:27)
+   n1: 1152 0x49D0DA3: cfe_uabipfe_generate_keys (uabipfe.c:126)
+    n0: 1152 0x41037B: main (uabipfe.c:30)
+   n1: 576 0x49D0B93: cfe_uabipfe_master_pub_key_init (uabipfe.c:70)
+    n0: 576 0x410363: main (uabipfe.c:27)
+   n1: 576 0x49D0BA3: cfe_uabipfe_master_pub_key_init (uabipfe.c:71)
+    n0: 576 0x410363: main (uabipfe.c:27)
+   n1: 576 0x49D0D97: cfe_uabipfe_generate_keys (uabipfe.c:125)
+    n0: 576 0x41037B: main (uabipfe.c:30)
+  n4: 4896 0x49C5A7F: cfe_vec_init (vec.c:28)
+   n1: 3840 0x49C1A3F: cfe_mat_init (mat.c:31)
+    n2: 3840 0x49C1AEF: cfe_mat_inits (mat.c:43)
+     n1: 3072 0x49D0DCB: cfe_uabipfe_generate_keys (uabipfe.c:128)
+      n0: 3072 0x41037B: main (uabipfe.c:30)
+     n1: 768 0x49D0DF3: cfe_uabipfe_generate_keys (uabipfe.c:129)
+      n0: 768 0x41037B: main (uabipfe.c:30)
+   n3: 480 0x49C5B57: cfe_vec_inits (vec.c:42)
+    n1: 192 0x49D0D77: cfe_uabipfe_generate_keys (uabipfe.c:122)
+     n0: 192 0x41037B: main (uabipfe.c:30)
+    n0: 160 0x4102FB: main (uabipfe.c:14)
+    n1: 128 0x49D0D8B: cfe_uabipfe_generate_keys (uabipfe.c:123)
+     n0: 128 0x41037B: main (uabipfe.c:30)
+   n1: 384 0x49D0C33: cfe_uabipfe_master_sec_key_init (uabipfe.c:87)
+    n0: 384 0x41036B: main (uabipfe.c:29)
+   n1: 192 0x49D0C6F: cfe_uabipfe_master_sec_key_init (uabipfe.c:91)
+    n0: 192 0x41036B: main (uabipfe.c:29)
+  n1: 576 0x49C1A0F: cfe_mat_init (mat.c:28)
+   n2: 576 0x49C1AEF: cfe_mat_inits (mat.c:43)
+    n1: 384 0x49D0DCB: cfe_uabipfe_generate_keys (uabipfe.c:128)
+     n0: 384 0x41037B: main (uabipfe.c:30)
+    n1: 192 0x49D0DF3: cfe_uabipfe_generate_keys (uabipfe.c:129)
+     n0: 192 0x41037B: main (uabipfe.c:30)
+  n0: 32 in 1 place, below massif's threshold (1.00%)
+ n1: 144 0x4911F07: __gmp_default_allocate (memory.c:53)
+  n1: 144 0x491F4CB: __gmpz_realloc (realloc.c:63)
+   n0: 144 in 6 places, all below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=3
+#-----------
+time=27677329
+mem_heap_B=29560
+mem_heap_extra_B=3416
+mem_stacks_B=0
+heap_tree=peak
+n3: 29560 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n4: 16160 0x49C7F63: cfe_malloc (common.c:29)
+  n4: 8992 0x49C5A7F: cfe_vec_init (vec.c:28)
+   n3: 7936 0x49C1A3F: cfe_mat_init (mat.c:31)
+    n2: 3840 0x49C1AEF: cfe_mat_inits (mat.c:43)
+     n1: 3072 0x49D0DCB: cfe_uabipfe_generate_keys (uabipfe.c:128)
+      n0: 3072 0x41037B: main (uabipfe.c:30)
+     n1: 768 0x49D0DF3: cfe_uabipfe_generate_keys (uabipfe.c:129)
+      n0: 768 0x41037B: main (uabipfe.c:30)
+    n1: 2048 0x49C35FB: cfe_mat_inverse_mod_gauss (mat.c:450)
+     n1: 2048 0x49D0F63: cfe_uabipfe_generate_keys (uabipfe.c:161)
+      n0: 2048 0x41037B: main (uabipfe.c:30)
+    n1: 2048 0x49C373F: cfe_mat_inverse_mod_gauss (mat.c:475)
+     n1: 2048 0x49D0F63: cfe_uabipfe_generate_keys (uabipfe.c:161)
+      n0: 2048 0x41037B: main (uabipfe.c:30)
+   n1: 480 0x49C5B57: cfe_vec_inits (vec.c:42)
+    n0: 480 in 3 places, all below massif's threshold (1.00%)
+   n1: 384 0x49D0C33: cfe_uabipfe_master_sec_key_init (uabipfe.c:87)
+    n0: 384 0x41036B: main (uabipfe.c:29)
+   n0: 192 in 1 place, below massif's threshold (1.00%)
+  n5: 6336 0x49C7327: cfe_vec_G1_init (vec_curve.c:28)
+   n1: 3456 0x49D0B6B: cfe_uabipfe_master_pub_key_init (uabipfe.c:68)
+    n0: 3456 0x410363: main (uabipfe.c:27)
+   n1: 1152 0x49D0DA3: cfe_uabipfe_generate_keys (uabipfe.c:126)
+    n0: 1152 0x41037B: main (uabipfe.c:30)
+   n1: 576 0x49D0B93: cfe_uabipfe_master_pub_key_init (uabipfe.c:70)
+    n0: 576 0x410363: main (uabipfe.c:27)
+   n1: 576 0x49D0BA3: cfe_uabipfe_master_pub_key_init (uabipfe.c:71)
+    n0: 576 0x410363: main (uabipfe.c:27)
+   n1: 576 0x49D0D97: cfe_uabipfe_generate_keys (uabipfe.c:125)
+    n0: 576 0x41037B: main (uabipfe.c:30)
+  n2: 832 0x49C1A0F: cfe_mat_init (mat.c:28)
+   n2: 576 0x49C1AEF: cfe_mat_inits (mat.c:43)
+    n1: 384 0x49D0DCB: cfe_uabipfe_generate_keys (uabipfe.c:128)
+     n0: 384 0x41037B: main (uabipfe.c:30)
+    n0: 192 in 1 place, below massif's threshold (1.00%)
+   n0: 256 in 2 places, all below massif's threshold (1.00%)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n2: 13360 0x4911F07: __gmp_default_allocate (memory.c:53)
+  n3: 7504 0x491F4CB: __gmpz_realloc (realloc.c:63)
+   n3: 5200 0x4920613: __gmpz_set (set.c:43)
+    n1: 3008 0x49C61CB: cfe_vec_set (vec.c:133)
+     n3: 3008 0x49C2467: cfe_mat_set (mat.c:160)
+      n1: 2048 0x49C3667: cfe_mat_inverse_mod_gauss (mat.c:461)
+       n1: 2048 0x49D0F63: cfe_uabipfe_generate_keys (uabipfe.c:161)
+        n0: 2048 0x41037B: main (uabipfe.c:30)
+      n1: 896 0x49C351B: cfe_mat_gaussian_elimination (mat.c:437)
+       n1: 896 0x49C374F: cfe_mat_inverse_mod_gauss (mat.c:476)
+        n1: 896 0x49D0F63: cfe_uabipfe_generate_keys (uabipfe.c:161)
+         n0: 896 0x41037B: main (uabipfe.c:30)
+      n0: 64 in 1 place, below massif's threshold (1.00%)
+    n1: 2112 0x49C5CA7: cfe_vec_copy (vec.c:58)
+     n1: 2112 0x49C1C63: cfe_mat_copy (mat.c:60)
+      n1: 2112 0x49C32F7: cfe_mat_gaussian_elimination (mat.c:396)
+       n1: 2112 0x49C374F: cfe_mat_inverse_mod_gauss (mat.c:476)
+        n1: 2112 0x49D0F63: cfe_uabipfe_generate_keys (uabipfe.c:161)
+         n0: 2112 0x41037B: main (uabipfe.c:30)
+    n0: 80 in 8 places, all below massif's threshold (1.00%)
+   n2: 2112 0x491F7E7: __gmpz_import (import.c:60)
+    n2: 2112 0x49CFA97: cfe_uniform_sample (uniform.c:37)
+     n1: 2048 0x49CFC6F: cfe_uniform_sample_vec (uniform.c:93)
+      n1: 2048 0x49CFD3F: cfe_uniform_sample_mat (uniform.c:105)
+       n1: 2048 0x49D0F4B: cfe_uabipfe_generate_keys (uabipfe.c:160)
+        n0: 2048 0x41037B: main (uabipfe.c:30)
+     n0: 64 in 2 places, all below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n0: 192 in 6 places, all below massif's threshold (1.00%)
+  n2: 5856 0x492721F: __gmpz_mul (mul.c:118)
+   n1: 5728 0x49C3997: cfe_mat_inverse_mod_gauss (mat.c:506)
+    n1: 5728 0x49D0F63: cfe_uabipfe_generate_keys (uabipfe.c:161)
+     n0: 5728 0x41037B: main (uabipfe.c:30)
+   n0: 128 in 4 places, all below massif's threshold (1.00%)
+ n0: 40 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=4
+#-----------
+time=34049734
+mem_heap_B=24640
+mem_heap_extra_B=2704
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=41936811
+mem_heap_B=24640
+mem_heap_extra_B=2704
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=47859761
+mem_heap_B=24640
+mem_heap_extra_B=2704
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=57821098
+mem_heap_B=24640
+mem_heap_extra_B=2704
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=63798548
+mem_heap_B=24640
+mem_heap_extra_B=2704
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=67783051
+mem_heap_B=24640
+mem_heap_extra_B=2704
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=75697418
+mem_heap_B=24640
+mem_heap_extra_B=2704
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=83648944
+mem_heap_B=25184
+mem_heap_extra_B=2832
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=89625969
+mem_heap_B=25184
+mem_heap_extra_B=2832
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=93693865
+mem_heap_B=7701
+mem_heap_extra_B=1235
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=99655056
+mem_heap_B=25432
+mem_heap_extra_B=1072
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=105636714
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=111558671
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=117480624
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=123402402
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=129324180
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=135246133
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=detailed
+n3: 26184 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n4: 23576 0x49C7F63: cfe_malloc (common.c:29)
+  n3: 17280 0x49C7777: cfe_vec_G2_init (vec_curve.c:79)
+   n1: 13824 0x49D1867: cfe_uabipfe_fe_key_init (uabipfe.c:333)
+    n0: 13824 0x4103FB: main (uabipfe.c:55)
+   n1: 2304 0x49D19A3: cfe_uabipfe_derive_fe_key (uabipfe.c:368)
+    n0: 2304 0x410413: main (uabipfe.c:56)
+   n1: 1152 0x49D1897: cfe_uabipfe_fe_key_init (uabipfe.c:336)
+    n0: 1152 0x4103FB: main (uabipfe.c:55)
+  n4: 4608 0x49C7327: cfe_vec_G1_init (vec_curve.c:28)
+   n1: 3456 0x49D0B6B: cfe_uabipfe_master_pub_key_init (uabipfe.c:68)
+    n0: 3456 0x410363: main (uabipfe.c:27)
+   n1: 576 0x49D0B93: cfe_uabipfe_master_pub_key_init (uabipfe.c:70)
+    n0: 576 0x410363: main (uabipfe.c:27)
+   n1: 576 0x49D0BA3: cfe_uabipfe_master_pub_key_init (uabipfe.c:71)
+    n0: 576 0x410363: main (uabipfe.c:27)
+   n0: 0 in 2 places, all below massif's threshold (1.00%)
+  n3: 1472 0x49C5A7F: cfe_vec_init (vec.c:28)
+   n0: 800 in 8 places, all below massif's threshold (1.00%)
+   n1: 384 0x49D0C33: cfe_uabipfe_master_sec_key_init (uabipfe.c:87)
+    n0: 384 0x41036B: main (uabipfe.c:29)
+   n2: 288 0x49C1A3F: cfe_mat_init (mat.c:31)
+    n2: 288 0x49D066B: cfe_boolean_to_msp_iterative (policy.c:156)
+     n1: 288 0x49D0073: cfe_boolean_to_msp (policy.c:40)
+      n0: 288 0x4103E7: main (uabipfe.c:51)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 4 places, all below massif's threshold (1.00%)
+  n0: 216 in 7 places, all below massif's threshold (1.00%)
+ n2: 2192 0x4911F07: __gmp_default_allocate (memory.c:53)
+  n4: 2032 0x491F4CB: __gmpz_realloc (realloc.c:63)
+   n2: 1320 0x4920613: __gmpz_set (set.c:43)
+    n3: 1160 0x49C5CA7: cfe_vec_copy (vec.c:58)
+     n1: 768 0x49D10F3: cfe_uabipfe_generate_keys (uabipfe.c:194)
+      n0: 768 0x41037B: main (uabipfe.c:30)
+     n1: 384 0x49D113F: cfe_uabipfe_generate_keys (uabipfe.c:200)
+      n0: 384 0x41037B: main (uabipfe.c:30)
+     n0: 8 in 2 places, all below massif's threshold (1.00%)
+    n0: 160 in 10 places, all below massif's threshold (1.00%)
+   n2: 352 0x491F7E7: __gmpz_import (import.c:60)
+    n2: 352 0x49CFA97: cfe_uniform_sample (uniform.c:37)
+     n1: 288 0x49CFC6F: cfe_uniform_sample_vec (uniform.c:93)
+      n0: 288 in 3 places, all below massif's threshold (1.00%)
+     n0: 64 in 4 places, all below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n2: 320 0x491919F: __gmpz_add (aors.h:75)
+    n1: 320 0x49D1B83: cfe_uabipfe_derive_fe_key (uabipfe.c:404)
+     n0: 320 0x410413: main (uabipfe.c:56)
+    n0: 0 in 3 places, all below massif's threshold (1.00%)
+   n0: 40 in 6 places, all below massif's threshold (1.00%)
+  n0: 160 in 2 places, all below massif's threshold (1.00%)
+ n1: 416 0x4911F5F: __gmp_default_reallocate (memory.c:101)
+  n2: 416 0x491F483: __gmpz_realloc (realloc.c:67)
+   n1: 416 0x491919F: __gmpz_add (aors.h:75)
+    n0: 416 in 3 places, all below massif's threshold (1.00%)
+   n0: 0 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=21
+#-----------
+time=141168090
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=147131247
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=153053204
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=158975161
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=164896939
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=170818896
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=176740857
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=182662814
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=188584771
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=194547104
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=detailed
+n3: 26184 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n4: 23576 0x49C7F63: cfe_malloc (common.c:29)
+  n3: 17280 0x49C7777: cfe_vec_G2_init (vec_curve.c:79)
+   n1: 13824 0x49D1867: cfe_uabipfe_fe_key_init (uabipfe.c:333)
+    n0: 13824 0x4103FB: main (uabipfe.c:55)
+   n1: 2304 0x49D19A3: cfe_uabipfe_derive_fe_key (uabipfe.c:368)
+    n0: 2304 0x410413: main (uabipfe.c:56)
+   n1: 1152 0x49D1897: cfe_uabipfe_fe_key_init (uabipfe.c:336)
+    n0: 1152 0x4103FB: main (uabipfe.c:55)
+  n4: 4608 0x49C7327: cfe_vec_G1_init (vec_curve.c:28)
+   n1: 3456 0x49D0B6B: cfe_uabipfe_master_pub_key_init (uabipfe.c:68)
+    n0: 3456 0x410363: main (uabipfe.c:27)
+   n1: 576 0x49D0B93: cfe_uabipfe_master_pub_key_init (uabipfe.c:70)
+    n0: 576 0x410363: main (uabipfe.c:27)
+   n1: 576 0x49D0BA3: cfe_uabipfe_master_pub_key_init (uabipfe.c:71)
+    n0: 576 0x410363: main (uabipfe.c:27)
+   n0: 0 in 2 places, all below massif's threshold (1.00%)
+  n3: 1472 0x49C5A7F: cfe_vec_init (vec.c:28)
+   n0: 800 in 8 places, all below massif's threshold (1.00%)
+   n1: 384 0x49D0C33: cfe_uabipfe_master_sec_key_init (uabipfe.c:87)
+    n0: 384 0x41036B: main (uabipfe.c:29)
+   n2: 288 0x49C1A3F: cfe_mat_init (mat.c:31)
+    n2: 288 0x49D066B: cfe_boolean_to_msp_iterative (policy.c:156)
+     n1: 288 0x49D0073: cfe_boolean_to_msp (policy.c:40)
+      n0: 288 0x4103E7: main (uabipfe.c:51)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 4 places, all below massif's threshold (1.00%)
+  n0: 216 in 7 places, all below massif's threshold (1.00%)
+ n2: 2192 0x4911F07: __gmp_default_allocate (memory.c:53)
+  n4: 2032 0x491F4CB: __gmpz_realloc (realloc.c:63)
+   n2: 1320 0x4920613: __gmpz_set (set.c:43)
+    n3: 1160 0x49C5CA7: cfe_vec_copy (vec.c:58)
+     n1: 768 0x49D10F3: cfe_uabipfe_generate_keys (uabipfe.c:194)
+      n0: 768 0x41037B: main (uabipfe.c:30)
+     n1: 384 0x49D113F: cfe_uabipfe_generate_keys (uabipfe.c:200)
+      n0: 384 0x41037B: main (uabipfe.c:30)
+     n0: 8 in 2 places, all below massif's threshold (1.00%)
+    n0: 160 in 10 places, all below massif's threshold (1.00%)
+   n2: 352 0x491F7E7: __gmpz_import (import.c:60)
+    n2: 352 0x49CFA97: cfe_uniform_sample (uniform.c:37)
+     n1: 288 0x49CFC6F: cfe_uniform_sample_vec (uniform.c:93)
+      n0: 288 in 3 places, all below massif's threshold (1.00%)
+     n0: 64 in 4 places, all below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n2: 320 0x491919F: __gmpz_add (aors.h:75)
+    n1: 320 0x49D1B83: cfe_uabipfe_derive_fe_key (uabipfe.c:404)
+     n0: 320 0x410413: main (uabipfe.c:56)
+    n0: 0 in 3 places, all below massif's threshold (1.00%)
+   n0: 40 in 6 places, all below massif's threshold (1.00%)
+  n0: 160 in 2 places, all below massif's threshold (1.00%)
+ n1: 416 0x4911F5F: __gmp_default_reallocate (memory.c:101)
+  n2: 416 0x491F483: __gmpz_realloc (realloc.c:67)
+   n1: 416 0x491919F: __gmpz_add (aors.h:75)
+    n0: 416 in 3 places, all below massif's threshold (1.00%)
+   n0: 0 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=31
+#-----------
+time=200469065
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=206390847
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=212312808
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=218234765
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=224156722
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=230078679
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=236000457
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=241962965
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=247884747
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=253806521
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=detailed
+n3: 26184 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n4: 23576 0x49C7F63: cfe_malloc (common.c:29)
+  n3: 17280 0x49C7777: cfe_vec_G2_init (vec_curve.c:79)
+   n1: 13824 0x49D1867: cfe_uabipfe_fe_key_init (uabipfe.c:333)
+    n0: 13824 0x4103FB: main (uabipfe.c:55)
+   n1: 2304 0x49D19A3: cfe_uabipfe_derive_fe_key (uabipfe.c:368)
+    n0: 2304 0x410413: main (uabipfe.c:56)
+   n1: 1152 0x49D1897: cfe_uabipfe_fe_key_init (uabipfe.c:336)
+    n0: 1152 0x4103FB: main (uabipfe.c:55)
+  n4: 4608 0x49C7327: cfe_vec_G1_init (vec_curve.c:28)
+   n1: 3456 0x49D0B6B: cfe_uabipfe_master_pub_key_init (uabipfe.c:68)
+    n0: 3456 0x410363: main (uabipfe.c:27)
+   n1: 576 0x49D0B93: cfe_uabipfe_master_pub_key_init (uabipfe.c:70)
+    n0: 576 0x410363: main (uabipfe.c:27)
+   n1: 576 0x49D0BA3: cfe_uabipfe_master_pub_key_init (uabipfe.c:71)
+    n0: 576 0x410363: main (uabipfe.c:27)
+   n0: 0 in 2 places, all below massif's threshold (1.00%)
+  n3: 1472 0x49C5A7F: cfe_vec_init (vec.c:28)
+   n0: 800 in 8 places, all below massif's threshold (1.00%)
+   n1: 384 0x49D0C33: cfe_uabipfe_master_sec_key_init (uabipfe.c:87)
+    n0: 384 0x41036B: main (uabipfe.c:29)
+   n2: 288 0x49C1A3F: cfe_mat_init (mat.c:31)
+    n2: 288 0x49D066B: cfe_boolean_to_msp_iterative (policy.c:156)
+     n1: 288 0x49D0073: cfe_boolean_to_msp (policy.c:40)
+      n0: 288 0x4103E7: main (uabipfe.c:51)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 4 places, all below massif's threshold (1.00%)
+  n0: 216 in 7 places, all below massif's threshold (1.00%)
+ n2: 2192 0x4911F07: __gmp_default_allocate (memory.c:53)
+  n4: 2032 0x491F4CB: __gmpz_realloc (realloc.c:63)
+   n2: 1320 0x4920613: __gmpz_set (set.c:43)
+    n3: 1160 0x49C5CA7: cfe_vec_copy (vec.c:58)
+     n1: 768 0x49D10F3: cfe_uabipfe_generate_keys (uabipfe.c:194)
+      n0: 768 0x41037B: main (uabipfe.c:30)
+     n1: 384 0x49D113F: cfe_uabipfe_generate_keys (uabipfe.c:200)
+      n0: 384 0x41037B: main (uabipfe.c:30)
+     n0: 8 in 2 places, all below massif's threshold (1.00%)
+    n0: 160 in 10 places, all below massif's threshold (1.00%)
+   n2: 352 0x491F7E7: __gmpz_import (import.c:60)
+    n2: 352 0x49CFA97: cfe_uniform_sample (uniform.c:37)
+     n1: 288 0x49CFC6F: cfe_uniform_sample_vec (uniform.c:93)
+      n0: 288 in 3 places, all below massif's threshold (1.00%)
+     n0: 64 in 4 places, all below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n2: 320 0x491919F: __gmpz_add (aors.h:75)
+    n1: 320 0x49D1B83: cfe_uabipfe_derive_fe_key (uabipfe.c:404)
+     n0: 320 0x410413: main (uabipfe.c:56)
+    n0: 0 in 3 places, all below massif's threshold (1.00%)
+   n0: 40 in 6 places, all below massif's threshold (1.00%)
+  n0: 160 in 2 places, all below massif's threshold (1.00%)
+ n1: 416 0x4911F5F: __gmp_default_reallocate (memory.c:101)
+  n2: 416 0x491F483: __gmpz_realloc (realloc.c:67)
+   n1: 416 0x491919F: __gmpz_add (aors.h:75)
+    n0: 416 in 3 places, all below massif's threshold (1.00%)
+   n0: 0 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=41
+#-----------
+time=259728478
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=265650256
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=271572034
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=277493812
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=283415769
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=289378922
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=295300879
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=301222832
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=307144789
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=313066567
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=detailed
+n3: 26184 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n4: 23576 0x49C7F63: cfe_malloc (common.c:29)
+  n3: 17280 0x49C7777: cfe_vec_G2_init (vec_curve.c:79)
+   n1: 13824 0x49D1867: cfe_uabipfe_fe_key_init (uabipfe.c:333)
+    n0: 13824 0x4103FB: main (uabipfe.c:55)
+   n1: 2304 0x49D19A3: cfe_uabipfe_derive_fe_key (uabipfe.c:368)
+    n0: 2304 0x410413: main (uabipfe.c:56)
+   n1: 1152 0x49D1897: cfe_uabipfe_fe_key_init (uabipfe.c:336)
+    n0: 1152 0x4103FB: main (uabipfe.c:55)
+  n4: 4608 0x49C7327: cfe_vec_G1_init (vec_curve.c:28)
+   n1: 3456 0x49D0B6B: cfe_uabipfe_master_pub_key_init (uabipfe.c:68)
+    n0: 3456 0x410363: main (uabipfe.c:27)
+   n1: 576 0x49D0B93: cfe_uabipfe_master_pub_key_init (uabipfe.c:70)
+    n0: 576 0x410363: main (uabipfe.c:27)
+   n1: 576 0x49D0BA3: cfe_uabipfe_master_pub_key_init (uabipfe.c:71)
+    n0: 576 0x410363: main (uabipfe.c:27)
+   n0: 0 in 2 places, all below massif's threshold (1.00%)
+  n3: 1472 0x49C5A7F: cfe_vec_init (vec.c:28)
+   n0: 800 in 8 places, all below massif's threshold (1.00%)
+   n1: 384 0x49D0C33: cfe_uabipfe_master_sec_key_init (uabipfe.c:87)
+    n0: 384 0x41036B: main (uabipfe.c:29)
+   n2: 288 0x49C1A3F: cfe_mat_init (mat.c:31)
+    n2: 288 0x49D066B: cfe_boolean_to_msp_iterative (policy.c:156)
+     n1: 288 0x49D0073: cfe_boolean_to_msp (policy.c:40)
+      n0: 288 0x4103E7: main (uabipfe.c:51)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 4 places, all below massif's threshold (1.00%)
+  n0: 216 in 7 places, all below massif's threshold (1.00%)
+ n2: 2192 0x4911F07: __gmp_default_allocate (memory.c:53)
+  n4: 2032 0x491F4CB: __gmpz_realloc (realloc.c:63)
+   n2: 1320 0x4920613: __gmpz_set (set.c:43)
+    n3: 1160 0x49C5CA7: cfe_vec_copy (vec.c:58)
+     n1: 768 0x49D10F3: cfe_uabipfe_generate_keys (uabipfe.c:194)
+      n0: 768 0x41037B: main (uabipfe.c:30)
+     n1: 384 0x49D113F: cfe_uabipfe_generate_keys (uabipfe.c:200)
+      n0: 384 0x41037B: main (uabipfe.c:30)
+     n0: 8 in 2 places, all below massif's threshold (1.00%)
+    n0: 160 in 10 places, all below massif's threshold (1.00%)
+   n2: 352 0x491F7E7: __gmpz_import (import.c:60)
+    n2: 352 0x49CFA97: cfe_uniform_sample (uniform.c:37)
+     n1: 288 0x49CFC6F: cfe_uniform_sample_vec (uniform.c:93)
+      n0: 288 in 3 places, all below massif's threshold (1.00%)
+     n0: 64 in 4 places, all below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n2: 320 0x491919F: __gmpz_add (aors.h:75)
+    n1: 320 0x49D1B83: cfe_uabipfe_derive_fe_key (uabipfe.c:404)
+     n0: 320 0x410413: main (uabipfe.c:56)
+    n0: 0 in 3 places, all below massif's threshold (1.00%)
+   n0: 40 in 6 places, all below massif's threshold (1.00%)
+  n0: 160 in 2 places, all below massif's threshold (1.00%)
+ n1: 416 0x4911F5F: __gmp_default_reallocate (memory.c:101)
+  n2: 416 0x491F483: __gmpz_realloc (realloc.c:67)
+   n1: 416 0x491919F: __gmpz_add (aors.h:75)
+    n0: 416 in 3 places, all below massif's threshold (1.00%)
+   n0: 0 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=51
+#-----------
+time=318988528
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=324910489
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=330832450
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=336794783
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=342716561
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=348638335
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=354560292
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=58
+#-----------
+time=360482074
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=59
+#-----------
+time=366404031
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=60
+#-----------
+time=372325813
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=detailed
+n3: 26184 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n4: 23576 0x49C7F63: cfe_malloc (common.c:29)
+  n3: 17280 0x49C7777: cfe_vec_G2_init (vec_curve.c:79)
+   n1: 13824 0x49D1867: cfe_uabipfe_fe_key_init (uabipfe.c:333)
+    n0: 13824 0x4103FB: main (uabipfe.c:55)
+   n1: 2304 0x49D19A3: cfe_uabipfe_derive_fe_key (uabipfe.c:368)
+    n0: 2304 0x410413: main (uabipfe.c:56)
+   n1: 1152 0x49D1897: cfe_uabipfe_fe_key_init (uabipfe.c:336)
+    n0: 1152 0x4103FB: main (uabipfe.c:55)
+  n4: 4608 0x49C7327: cfe_vec_G1_init (vec_curve.c:28)
+   n1: 3456 0x49D0B6B: cfe_uabipfe_master_pub_key_init (uabipfe.c:68)
+    n0: 3456 0x410363: main (uabipfe.c:27)
+   n1: 576 0x49D0B93: cfe_uabipfe_master_pub_key_init (uabipfe.c:70)
+    n0: 576 0x410363: main (uabipfe.c:27)
+   n1: 576 0x49D0BA3: cfe_uabipfe_master_pub_key_init (uabipfe.c:71)
+    n0: 576 0x410363: main (uabipfe.c:27)
+   n0: 0 in 2 places, all below massif's threshold (1.00%)
+  n3: 1472 0x49C5A7F: cfe_vec_init (vec.c:28)
+   n0: 800 in 8 places, all below massif's threshold (1.00%)
+   n1: 384 0x49D0C33: cfe_uabipfe_master_sec_key_init (uabipfe.c:87)
+    n0: 384 0x41036B: main (uabipfe.c:29)
+   n2: 288 0x49C1A3F: cfe_mat_init (mat.c:31)
+    n2: 288 0x49D066B: cfe_boolean_to_msp_iterative (policy.c:156)
+     n1: 288 0x49D0073: cfe_boolean_to_msp (policy.c:40)
+      n0: 288 0x4103E7: main (uabipfe.c:51)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 4 places, all below massif's threshold (1.00%)
+  n0: 216 in 7 places, all below massif's threshold (1.00%)
+ n2: 2192 0x4911F07: __gmp_default_allocate (memory.c:53)
+  n4: 2032 0x491F4CB: __gmpz_realloc (realloc.c:63)
+   n2: 1320 0x4920613: __gmpz_set (set.c:43)
+    n3: 1160 0x49C5CA7: cfe_vec_copy (vec.c:58)
+     n1: 768 0x49D10F3: cfe_uabipfe_generate_keys (uabipfe.c:194)
+      n0: 768 0x41037B: main (uabipfe.c:30)
+     n1: 384 0x49D113F: cfe_uabipfe_generate_keys (uabipfe.c:200)
+      n0: 384 0x41037B: main (uabipfe.c:30)
+     n0: 8 in 2 places, all below massif's threshold (1.00%)
+    n0: 160 in 10 places, all below massif's threshold (1.00%)
+   n2: 352 0x491F7E7: __gmpz_import (import.c:60)
+    n2: 352 0x49CFA97: cfe_uniform_sample (uniform.c:37)
+     n1: 288 0x49CFC6F: cfe_uniform_sample_vec (uniform.c:93)
+      n0: 288 in 3 places, all below massif's threshold (1.00%)
+     n0: 64 in 4 places, all below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n2: 320 0x491919F: __gmpz_add (aors.h:75)
+    n1: 320 0x49D1B83: cfe_uabipfe_derive_fe_key (uabipfe.c:404)
+     n0: 320 0x410413: main (uabipfe.c:56)
+    n0: 0 in 3 places, all below massif's threshold (1.00%)
+   n0: 40 in 6 places, all below massif's threshold (1.00%)
+  n0: 160 in 2 places, all below massif's threshold (1.00%)
+ n1: 416 0x4911F5F: __gmp_default_reallocate (memory.c:101)
+  n2: 416 0x491F483: __gmpz_realloc (realloc.c:67)
+   n1: 416 0x491919F: __gmpz_add (aors.h:75)
+    n0: 416 in 3 places, all below massif's threshold (1.00%)
+   n0: 0 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=61
+#-----------
+time=378247587
+mem_heap_B=26184
+mem_heap_extra_B=1344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=62
+#-----------
+time=384169773
+mem_heap_B=26154
+mem_heap_extra_B=1358
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=63
+#-----------
+time=389916590
+mem_heap_B=26162
+mem_heap_extra_B=1390
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=64
+#-----------
+time=391001571
+mem_heap_B=26156
+mem_heap_extra_B=1396
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=65
+#-----------
+time=396978584
+mem_heap_B=26164
+mem_heap_extra_B=1428
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=66
+#-----------
+time=397803510
+mem_heap_B=26158
+mem_heap_extra_B=1434
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=67
+#-----------
+time=403571373
+mem_heap_B=26166
+mem_heap_extra_B=1450
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=68
+#-----------
+time=404396333
+mem_heap_B=26160
+mem_heap_extra_B=1456
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=69
+#-----------
+time=409955402
+mem_heap_B=26168
+mem_heap_extra_B=1472
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=70
+#-----------
+time=410780328
+mem_heap_B=26162
+mem_heap_extra_B=1478
+mem_stacks_B=0
+heap_tree=detailed
+n3: 26162 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n4: 23586 0x49C7F63: cfe_malloc (common.c:29)
+  n3: 17280 0x49C7777: cfe_vec_G2_init (vec_curve.c:79)
+   n1: 13824 0x49D1867: cfe_uabipfe_fe_key_init (uabipfe.c:333)
+    n0: 13824 0x4103FB: main (uabipfe.c:55)
+   n1: 2304 0x49D19A3: cfe_uabipfe_derive_fe_key (uabipfe.c:368)
+    n0: 2304 0x410413: main (uabipfe.c:56)
+   n1: 1152 0x49D1897: cfe_uabipfe_fe_key_init (uabipfe.c:336)
+    n0: 1152 0x4103FB: main (uabipfe.c:55)
+  n4: 4608 0x49C7327: cfe_vec_G1_init (vec_curve.c:28)
+   n1: 3456 0x49D0B6B: cfe_uabipfe_master_pub_key_init (uabipfe.c:68)
+    n0: 3456 0x410363: main (uabipfe.c:27)
+   n1: 576 0x49D0B93: cfe_uabipfe_master_pub_key_init (uabipfe.c:70)
+    n0: 576 0x410363: main (uabipfe.c:27)
+   n1: 576 0x49D0BA3: cfe_uabipfe_master_pub_key_init (uabipfe.c:71)
+    n0: 576 0x410363: main (uabipfe.c:27)
+   n0: 0 in 2 places, all below massif's threshold (1.00%)
+  n3: 1472 0x49C5A7F: cfe_vec_init (vec.c:28)
+   n0: 800 in 8 places, all below massif's threshold (1.00%)
+   n1: 384 0x49D0C33: cfe_uabipfe_master_sec_key_init (uabipfe.c:87)
+    n0: 384 0x41036B: main (uabipfe.c:29)
+   n2: 288 0x49C1A3F: cfe_mat_init (mat.c:31)
+    n2: 288 0x49D066B: cfe_boolean_to_msp_iterative (policy.c:156)
+     n1: 288 0x49D0073: cfe_boolean_to_msp (policy.c:40)
+      n0: 288 0x4103E7: main (uabipfe.c:51)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 4 places, all below massif's threshold (1.00%)
+  n0: 226 in 8 places, all below massif's threshold (1.00%)
+ n2: 2160 0x4911F07: __gmp_default_allocate (memory.c:53)
+  n4: 2000 0x491F4CB: __gmpz_realloc (realloc.c:63)
+   n2: 1288 0x4920613: __gmpz_set (set.c:43)
+    n3: 1160 0x49C5CA7: cfe_vec_copy (vec.c:58)
+     n1: 768 0x49D10F3: cfe_uabipfe_generate_keys (uabipfe.c:194)
+      n0: 768 0x41037B: main (uabipfe.c:30)
+     n1: 384 0x49D113F: cfe_uabipfe_generate_keys (uabipfe.c:200)
+      n0: 384 0x41037B: main (uabipfe.c:30)
+     n0: 8 in 2 places, all below massif's threshold (1.00%)
+    n0: 128 in 10 places, all below massif's threshold (1.00%)
+   n2: 352 0x491F7E7: __gmpz_import (import.c:60)
+    n2: 352 0x49CFA97: cfe_uniform_sample (uniform.c:37)
+     n1: 288 0x49CFC6F: cfe_uniform_sample_vec (uniform.c:93)
+      n0: 288 in 3 places, all below massif's threshold (1.00%)
+     n0: 64 in 4 places, all below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n2: 320 0x491919F: __gmpz_add (aors.h:75)
+    n1: 320 0x49D1B83: cfe_uabipfe_derive_fe_key (uabipfe.c:404)
+     n0: 320 0x410413: main (uabipfe.c:56)
+    n0: 0 in 3 places, all below massif's threshold (1.00%)
+   n0: 40 in 7 places, all below massif's threshold (1.00%)
+  n0: 160 in 2 places, all below massif's threshold (1.00%)
+ n1: 416 0x4911F5F: __gmp_default_reallocate (memory.c:101)
+  n2: 416 0x491F483: __gmpz_realloc (realloc.c:67)
+   n1: 416 0x491919F: __gmpz_add (aors.h:75)
+    n0: 416 in 3 places, all below massif's threshold (1.00%)
+   n0: 0 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=71
+#-----------
+time=416531213
+mem_heap_B=26170
+mem_heap_extra_B=1494
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=72
+#-----------
+time=417356941
+mem_heap_B=26194
+mem_heap_extra_B=1486
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=73
+#-----------
+time=423279514
+mem_heap_B=26194
+mem_heap_extra_B=1486
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=74
+#-----------
+time=429116705
+mem_heap_B=26194
+mem_heap_extra_B=1486
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=75
+#-----------
+time=435002768
+mem_heap_B=26194
+mem_heap_extra_B=1486
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=76
+#-----------
+time=440839959
+mem_heap_B=26194
+mem_heap_extra_B=1486
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=77
+#-----------
+time=446762357
+mem_heap_B=26194
+mem_heap_extra_B=1486
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=78
+#-----------
+time=452648432
+mem_heap_B=26194
+mem_heap_extra_B=1486
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=79
+#-----------
+time=458571005
+mem_heap_B=26194
+mem_heap_extra_B=1486
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=80
+#-----------
+time=464493399
+mem_heap_B=26194
+mem_heap_extra_B=1486
+mem_stacks_B=0
+heap_tree=detailed
+n3: 26194 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n4: 23586 0x49C7F63: cfe_malloc (common.c:29)
+  n3: 17280 0x49C7777: cfe_vec_G2_init (vec_curve.c:79)
+   n1: 13824 0x49D1867: cfe_uabipfe_fe_key_init (uabipfe.c:333)
+    n0: 13824 0x4103FB: main (uabipfe.c:55)
+   n1: 2304 0x49D19A3: cfe_uabipfe_derive_fe_key (uabipfe.c:368)
+    n0: 2304 0x410413: main (uabipfe.c:56)
+   n1: 1152 0x49D1897: cfe_uabipfe_fe_key_init (uabipfe.c:336)
+    n0: 1152 0x4103FB: main (uabipfe.c:55)
+  n4: 4608 0x49C7327: cfe_vec_G1_init (vec_curve.c:28)
+   n1: 3456 0x49D0B6B: cfe_uabipfe_master_pub_key_init (uabipfe.c:68)
+    n0: 3456 0x410363: main (uabipfe.c:27)
+   n1: 576 0x49D0B93: cfe_uabipfe_master_pub_key_init (uabipfe.c:70)
+    n0: 576 0x410363: main (uabipfe.c:27)
+   n1: 576 0x49D0BA3: cfe_uabipfe_master_pub_key_init (uabipfe.c:71)
+    n0: 576 0x410363: main (uabipfe.c:27)
+   n0: 0 in 2 places, all below massif's threshold (1.00%)
+  n3: 1472 0x49C5A7F: cfe_vec_init (vec.c:28)
+   n0: 800 in 8 places, all below massif's threshold (1.00%)
+   n1: 384 0x49D0C33: cfe_uabipfe_master_sec_key_init (uabipfe.c:87)
+    n0: 384 0x41036B: main (uabipfe.c:29)
+   n2: 288 0x49C1A3F: cfe_mat_init (mat.c:31)
+    n2: 288 0x49D066B: cfe_boolean_to_msp_iterative (policy.c:156)
+     n1: 288 0x49D0073: cfe_boolean_to_msp (policy.c:40)
+      n0: 288 0x4103E7: main (uabipfe.c:51)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 4 places, all below massif's threshold (1.00%)
+  n0: 226 in 8 places, all below massif's threshold (1.00%)
+ n2: 2192 0x4911F07: __gmp_default_allocate (memory.c:53)
+  n4: 2032 0x491F4CB: __gmpz_realloc (realloc.c:63)
+   n2: 1320 0x4920613: __gmpz_set (set.c:43)
+    n3: 1160 0x49C5CA7: cfe_vec_copy (vec.c:58)
+     n1: 768 0x49D10F3: cfe_uabipfe_generate_keys (uabipfe.c:194)
+      n0: 768 0x41037B: main (uabipfe.c:30)
+     n1: 384 0x49D113F: cfe_uabipfe_generate_keys (uabipfe.c:200)
+      n0: 384 0x41037B: main (uabipfe.c:30)
+     n0: 8 in 2 places, all below massif's threshold (1.00%)
+    n0: 160 in 10 places, all below massif's threshold (1.00%)
+   n2: 352 0x491F7E7: __gmpz_import (import.c:60)
+    n2: 352 0x49CFA97: cfe_uniform_sample (uniform.c:37)
+     n1: 288 0x49CFC6F: cfe_uniform_sample_vec (uniform.c:93)
+      n0: 288 in 3 places, all below massif's threshold (1.00%)
+     n0: 64 in 4 places, all below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n2: 320 0x491919F: __gmpz_add (aors.h:75)
+    n1: 320 0x49D1B83: cfe_uabipfe_derive_fe_key (uabipfe.c:404)
+     n0: 320 0x410413: main (uabipfe.c:56)
+    n0: 0 in 3 places, all below massif's threshold (1.00%)
+   n0: 40 in 7 places, all below massif's threshold (1.00%)
+  n0: 160 in 2 places, all below massif's threshold (1.00%)
+ n1: 416 0x4911F5F: __gmp_default_reallocate (memory.c:101)
+  n2: 416 0x491F483: __gmpz_realloc (realloc.c:67)
+   n1: 416 0x491919F: __gmpz_add (aors.h:75)
+    n0: 416 in 3 places, all below massif's threshold (1.00%)
+   n0: 0 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=81
+#-----------
+time=470464681
+mem_heap_B=26194
+mem_heap_extra_B=1486
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=82
+#-----------
+time=476387254
+mem_heap_B=26194
+mem_heap_extra_B=1486
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=83
+#-----------
+time=482309827
+mem_heap_B=26194
+mem_heap_extra_B=1486
+mem_stacks_B=0
+heap_tree=empty
