@@ -6,8 +6,8 @@
 void main()
 {
     cfe_error err;
-    size_t m1 = 10;
-    size_t m2 = 2;
+    size_t m1 = 100;
+    size_t m2 = 10;
     mpz_t zero, one, bound, bound_neg, xy_check, xy, wv_check;
     cfe_vec x, y, w, v;
 
@@ -55,6 +55,10 @@ void main()
     printf("\nv: ");
     cfe_vec_print(&v);
     gmp_printf("\nw * v: %Zd\n", wv_check);
+    
+    cfe_uzpipfe_ciphertext cipher;
+    cfe_uzpipfe_ciphertext_init(&cipher, &uzpipfe);
+    err = cfe_uzpipfe_encrypt(&cipher, &x, &w, &sec_key, &pub_key, &uzpipfe);
 
     cfe_uzpipfe_fe_key fe_key;
     cfe_uzpipfe_fe_key_init(&fe_key, &uzpipfe);
@@ -62,15 +66,9 @@ void main()
                                     &sec_key, &pub_key,
                                     &uzpipfe);
     
-    cfe_uzpipfe_ciphertext cipher;
-    cfe_uzpipfe_ciphertext_init(&cipher, &uzpipfe);
-    err = cfe_uzpipfe_encrypt(&cipher, &x, &w, &sec_key, &pub_key, &uzpipfe);
-
-
     cfe_uzpipfe decryptor;
     cfe_uzpipfe_copy(&decryptor, &uzpipfe);
     err = cfe_uzpipfe_decrypt(xy, &cipher, &fe_key, &pub_key, &decryptor);
-    
     
     gmp_printf("FE x * y: %Zd\n", xy);
 
