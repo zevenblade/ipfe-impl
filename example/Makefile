@@ -21,3 +21,9 @@ fhipe:
 		-g fhipe.c \
 		-o fhipe.out \
 		-lgmp -lcifer 
+
+uzpipfe_27:
+	gcc	-L/usr/local/lib/libcifer.so \
+		-g uzpipfe_27.c \
+		-o uzpipfe_27.out \
+		-lgmp -lcifer 

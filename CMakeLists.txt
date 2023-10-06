@@ -45,6 +45,7 @@ set(library_SOURCES
         src/internal/prime.c
         src/internal/str.c
         src/innerprod/fullysec/uzpipfe.c
+        src/innerprod/fullysec/uzpipfe_27.c
         src/sample/normal.c
         src/sample/normal_cumulative.c
         src/sample/normal_double.c
