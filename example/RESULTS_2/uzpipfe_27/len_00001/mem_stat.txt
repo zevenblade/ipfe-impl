@@ -1,0 +1,21 @@
+==53757== Memcheck, a memory error detector
+==53757== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==53757== Using Valgrind-3.21.0 and LibVEX; rerun with -h for copyright info
+==53757== Command: ./uzpipfe_27.out
+==53757== Parent PID: 45019
+==53757== 
+==53757== 
+==53757== HEAP SUMMARY:
+==53757==     in use at exit: 90,712 bytes in 2,040 blocks
+==53757==   total heap usage: 9,268 allocs, 7,228 frees, 196,506 bytes allocated
+==53757== 
+==53757== LEAK SUMMARY:
+==53757==    definitely lost: 58,456 bytes in 31 blocks
+==53757==    indirectly lost: 32,256 bytes in 2,009 blocks
+==53757==      possibly lost: 0 bytes in 0 blocks
+==53757==    still reachable: 0 bytes in 0 blocks
+==53757==         suppressed: 0 bytes in 0 blocks
+==53757== Rerun with --leak-check=full to see details of leaked memory
+==53757== 
+==53757== For lists of detected and suppressed errors, rerun with: -s
+==53757== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
